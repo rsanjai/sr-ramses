@@ -112,6 +112,7 @@ public class AadlModelsManagerImpl implements AadlModelInstantiatior {
     for(Resource r : aadlModels)
     {
       PropertiesLinkingService pls = new PropertiesLinkingService() ;
+      if (!(r.getContents().get(0) instanceof AadlPackage)) continue;
       AadlPackage pkg = (AadlPackage) r.getContents().get(0) ;
       SystemImplementation si = (SystemImplementation) pls.
                     findNamedElementInsideAadlPackage(systemToInstantiate,
